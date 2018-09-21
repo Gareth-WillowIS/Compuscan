@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://webServices/" targetNamespace="http://webServices/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="DoNormalEnquiry" type="tns:DoNormalEnquiry" />
+  <xs:element name="DoNormalEnquiryResponse" type="tns:DoNormalEnquiryResponse" />
+  <xs:element name="PingServer" type="tns:PingServer" />
+  <xs:element name="PingServerResponse" type="tns:PingServerResponse" />
+  <xs:element name="transReplyClass" type="tns:transReplyClass" />
+  <xs:complexType name="DoNormalEnquiry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="request" type="tns:NormalEnqRequestParamsType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NormalEnqRequestParamsType">
+    <xs:sequence>
+      <xs:element name="pUsrnme" type="xs:string" />
+      <xs:element name="pPasswrd" type="xs:string" />
+      <xs:element name="pVersion" type="xs:string" />
+      <xs:element name="pOrigin" type="xs:string" />
+      <xs:element name="pOrigin_Version" type="xs:string" />
+      <xs:element name="pInput_Format" type="xs:string" />
+      <xs:element name="pTransaction" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DoNormalEnquiryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TransReplyClass" type="tns:transReplyClass" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="transReplyClass">
+    <xs:sequence>
+      <xs:element name="transactionCompleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+      <xs:element minOccurs="0" name="errorString" type="xs:string" />
+      <xs:element minOccurs="0" name="retData" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PingServer">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="PingServerResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
